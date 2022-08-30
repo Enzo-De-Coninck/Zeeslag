@@ -1,17 +1,14 @@
 "use strict";
 let boten;
+const tbody = document.querySelector("tbody");
 leesBoten();
 vulRijen();
 vulKolommen();
 document.getElementById("plaats").onclick = function () {
-    validatie;
-    if (validatie) {
+    if (validatie()) {
         plaatsBoot();
     }
 }
-
-
-
 
 
 async function leesBoten() {
@@ -58,7 +55,7 @@ function validatie() {
     let valid = true;
     const bootInput = document.getElementById("boot").value;
     const rijInput = document.getElementById("rij").value;
-    let kolomInput = document.getElementById("kolom").value;
+    const kolomInput = document.getElementById("kolom").value;
     const richtingInput = document.getElementById("richting").value;
     if (bootInput === "") {
         document.getElementById("geenSchip").hidden = false;
@@ -76,24 +73,31 @@ function validatie() {
         document.getElementById("geenRichting").hidden = false;
         valid = false;
     }
+    if(valid) {
+        document.getElementById("geenSchip").hidden = true;
+        document.getElementById("geenRij").hidden = true;
+        document.getElementById("geenKolom").hidden = true;
+        document.getElementById("geenRichting").hidden = true;
+    }
     return valid;
 }
 
 function plaatsBoot() {
-    const bootInput = document.getElementById("boot").value;
+    const bootInput = document.getElementById("boot");
     const rijInput = document.getElementById("rij").value;
     let kolomInput = document.getElementById("kolom").value;
     kolomInput = kolomInput.charCodeAt(0) - 64;
     const richtingInput = document.getElementById("richting").value;
-    const bootLengte = boten[bootInput].lengte;
-    const afbeelding = boten[bootInput].afbeelding;
+    const bootLengte = boten[bootInput.value].lengte;
+    const afbeelding = boten[bootInput.value].afbeelding;
     
     for (let i = 0; i < bootLengte; i++) {
         if (richtingInput === "horizontaal") {
-            document.querySelector("tbody").rows[rijInput - 1].cells[kolomInput + i].innerHTML = `<img src = "${afbeelding}">`;
-        } else {
-            document.querySelector("tbody").rows[rijInput - 1 + i].cells[kolomInput].innerHTML = `<img src = "${afbeelding}">`;
-        }
-    }
-    
+                tbody.rows[rijInput - 1].cells[kolomInput + i].innerHTML = `<img src = "${afbeelding}">`;
+            
+        } else if (richtingInput === "verticaal") {
+                tbody.rows[rijInput - 1 + i].cells[kolomInput].innerHTML = `<img src = "${afbeelding}">`;
+    }}
+    bootInput.remove(bootInput.selectedIndex);
+
 }
