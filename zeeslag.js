@@ -106,12 +106,16 @@ function validatie() {
             if(tbody.rows[rijInput - 1].cells[kolomInput + i].innerHTML !== "") {
                 valid = false;
                 document.getElementById("alBezet").hidden = false;
+            } else {
+                document.getElementById("alBezet").hidden = true;
             }
         }
         if (richtingInput === "verticaal") {
             if(tbody.rows[rijInput - 1 + i].cells[kolomInput].innerHTML !== "") {
                 valid = false;
                 document.getElementById("alBezet").hidden = false;
+            } else {
+                document.getElementById("alBezet").hidden = true;
             }
         }
         
