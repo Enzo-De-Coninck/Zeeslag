@@ -54,7 +54,7 @@ function vulKolommen() {
 function validatie() {
     let valid = true;
     const bootInput = document.getElementById("boot").value;
-    const rijInput = document.getElementById("rij").value;
+    const rijInput = Number(document.getElementById("rij").value);
     let kolomInput = document.getElementById("kolom").value;
     kolomInput = kolomInput.charCodeAt(0) - 64;
     const richtingInput = document.getElementById("richting").value;
@@ -95,9 +95,26 @@ function validatie() {
         if ((rijInput + lengteBoot) > 11) {
             valid = false;
             document.getElementById("teLang").hidden = false;
+            console.log(rijInput);
+            console.log(lengteBoot);
         } else {
             document.getElementById("teLang").hidden = true;
         }
+    }
+    for (let i = 0; i < lengteBoot; i++) {
+        if (richtingInput === "horizontaal") {
+            if(tbody.rows[rijInput - 1].cells[kolomInput + i].innerHTML !== "") {
+                valid = false;
+                document.getElementById("alBezet").hidden = false;
+            }
+        }
+        if (richtingInput === "verticaal") {
+            if(tbody.rows[rijInput - 1 + i].cells[kolomInput].innerHTML !== "") {
+                valid = false;
+                document.getElementById("alBezet").hidden = false;
+            }
+        }
+        
     }
     return valid;
 }
@@ -110,15 +127,11 @@ function plaatsBoot() {
     const richtingInput = document.getElementById("richting").value;
     const bootLengte = boten[bootInput.value].lengte;
     const afbeelding = boten[bootInput.value].afbeelding;
-    
     for (let i = 0; i < bootLengte; i++) {
         if (richtingInput === "horizontaal") {    
            if (tbody.rows[rijInput - 1].cells[kolomInput + i].innerHTML === "") {
 	            tbody.rows[rijInput - 1].cells[kolomInput + i].innerHTML = `<img src = "${afbeelding}">`;
-            } else {
-                
             }
-            
         } else if (richtingInput === "verticaal") {
                 tbody.rows[rijInput - 1 + i].cells[kolomInput].innerHTML = `<img src = "${afbeelding}">`;
     }}
