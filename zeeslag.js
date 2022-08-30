@@ -129,9 +129,7 @@ function plaatsBoot() {
     const afbeelding = boten[bootInput.value].afbeelding;
     for (let i = 0; i < bootLengte; i++) {
         if (richtingInput === "horizontaal") {    
-           if (tbody.rows[rijInput - 1].cells[kolomInput + i].innerHTML === "") {
 	            tbody.rows[rijInput - 1].cells[kolomInput + i].innerHTML = `<img src = "${afbeelding}">`;
-            }
         } else if (richtingInput === "verticaal") {
                 tbody.rows[rijInput - 1 + i].cells[kolomInput].innerHTML = `<img src = "${afbeelding}">`;
     }}
