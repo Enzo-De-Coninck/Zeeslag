@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+    <title>Zeeslag</title>
+    <script src="zeeslag.js" defer></script>
+    <link rel="icon" href="zeeslag.ico" type="image/x-icon">
+    <link rel="stylesheet" href="zeeslag.css">
+</head>
+
+<body>
+    <div>
+        <label>Schip:
+            <select id="boot" required autofocus>
+                <option value="">Maak een keuze</option>
+            </select>
+        </label>
+        <div id="geenSchip" class="fout" hidden>Selecteer een schip</div>
+    </div>
+    <div>
+        <label>Rij:
+            <select id="rij" required>
+                <option value="">Maak een keuze</option>
+            </select>
+        </label>
+        <div id="geenRij" class="fout" hidden>Selecteer een rij</div>
+    </div>
+    <div>
+        <label>Kolom:
+            <select id="kolom" required>
+                <option value="">Maak een keuze</option>
+            </select>
+        </label>
+        <div id="geenKolom" class="fout" hidden>Selecteer een kolom</div>
+    </div>
+    <div>
+        <label>Richting:
+            <select id="richting" required>
+                <option value="">Maak een keuze</option>
+                <option value="horizontaal">horizontaal</option>
+                <option value="verticaal">verticaal</option>
+            </select>
+        </label>
+        <div id="geenRichting" class="fout" hidden>Selecteer een richting</div>
+    </div>
+    <div>
+        <button id="plaats">Plaats</button>
+        <button id="nieuw">Nieuw</button>
+    </div>
+    <table id="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+                <th>I</th>
+                <th>J</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>4</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>5</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>6</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>7</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>8</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>9</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>10</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div id="teLang" class="fout" hidden>De boot is te lang</div>
+    <div id="alBezet" class="fout" hidden>Er zijn al plaatsen bezet</div>
+</body>
+
+</html>

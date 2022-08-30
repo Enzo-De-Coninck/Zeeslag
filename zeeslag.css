@@ -1,0 +1,36 @@
+body {
+    background-color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+    margin-top:0.5em;
+}
+
+select {
+    margin-top:0.2em;
+    display:block;
+}
+
+table {
+    background-color: lightgray;
+    border-collapse: collapse;
+    margin-top:2em;
+}
+
+td, th {
+    border: 0.1em solid white;
+    height: 2em;
+    width:2em;
+}
+
+.fout {
+    background-color: red;
+    margin-top: 0.5em;
+    color: white;
+}
+
+.fout:empty {
+    display: none;
+}
+
