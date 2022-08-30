@@ -55,29 +55,49 @@ function validatie() {
     let valid = true;
     const bootInput = document.getElementById("boot").value;
     const rijInput = document.getElementById("rij").value;
-    const kolomInput = document.getElementById("kolom").value;
+    let kolomInput = document.getElementById("kolom").value;
+    kolomInput = kolomInput.charCodeAt(0) - 64;
     const richtingInput = document.getElementById("richting").value;
     if (bootInput === "") {
         document.getElementById("geenSchip").hidden = false;
         valid = false;
+    } else {
+        document.getElementById("geenSchip").hidden = true;
     }
     if (rijInput === "") {
         document.getElementById("geenRij").hidden = false;
         valid = false;
+    } else {
+        document.getElementById("geenRij").hidden = true;
     }
     if (kolomInput === "") {
         document.getElementById("geenKolom").hidden = false;
         valid = false;
+    } else {
+        document.getElementById("geenKolom").hidden = true;
     }
     if (richtingInput === "") {
         document.getElementById("geenRichting").hidden = false;
         valid = false;
-    }
-    if(valid) {
-        document.getElementById("geenSchip").hidden = true;
-        document.getElementById("geenRij").hidden = true;
-        document.getElementById("geenKolom").hidden = true;
+    } else {
         document.getElementById("geenRichting").hidden = true;
+    }
+    const lengteBoot = boten[bootInput].lengte;
+    if (richtingInput === "horizontaal") {
+        if ((kolomInput + lengteBoot) > 11) {
+            valid = false;
+            document.getElementById("teLang").hidden = false;
+        } else {
+            document.getElementById("teLang").hidden = true;
+        }
+    }
+    if (richtingInput === "verticaal") {
+        if ((rijInput + lengteBoot) > 11) {
+            valid = false;
+            document.getElementById("teLang").hidden = false;
+        } else {
+            document.getElementById("teLang").hidden = true;
+        }
     }
     return valid;
 }
